@@ -1,0 +1,13 @@
+{
+  "identifier": "main",
+  "description": "Main window capability",
+  "windows": ["main"],
+  "permissions": [
+    "core:event:allow-listen",
+    "core:default",
+    "core:window:allow-set-size",
+    "core:window:allow-inner-size",
+    "core:window:allow-scale-factor",
+    "shell:allow-open"
+  ]
+}

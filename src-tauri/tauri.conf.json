@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Auto Clicker Vue",
+  "version": "1.0.0",
+  "identifier": "app.auto-clicker-vue",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "Auto Clicker Vue",
+        "width": 460,
+        "height": 500,
+        "minWidth": 380,
+        "minHeight": 100,
+        "resizable": true,
+        "decorations": true,
+        "center": false
+      }
+    ],
+    "security": {
+      "csp": {
+        "default-src": "'self' customprotocol: asset:",
+        "connect-src": "ipc: http://ipc.localhost",
+        "font-src": "'self'",
+        "img-src": "'self' asset: http://asset.localhost blob: data:",
+        "style-src": "'unsafe-inline' 'self'"
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "shortDescription": "Лёгкий и красивый автокликер для Windows",
+    "longDescription": "Auto Clicker Vue — настольное приложение для автоматического выполнения кликов мышью или нажатий клавиш с настраиваемым интервалом. Поддерживает горячие клавиши, авто-паузу при движении мыши и работает на Tauri 2 + Vue 3 + Nuxt UI 4."
+  }
+}
