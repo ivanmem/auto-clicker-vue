@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+@import '@nuxt/ui';
+
+/* Safelist: иконки используются динамически в computed — без этого UnoCSS их не включает в бандл */
+@source inline("i-lucide-circle i-lucide-pause-circle i-lucide-circle-play");
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Ubuntu, Cantarell, 'Noto Sans',
+    'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  --font-mono: 'Cascadia Code', Consolas, Menlo, 'Ubuntu Mono', 'DejaVu Sans Mono', 'Courier New',
+    monospace;
+}
+
+/* Базовая настройка корневого окна десктоп-приложения */
+html,
+body {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* В нативном приложении выделение текста по умолчанию мешает.
+   Разрешаем его только в полях ввода. */
+button,
+[role='button'] {
+  @apply cursor-default select-none;
+}
+
+input,
+textarea {
+  @apply select-auto;
+}

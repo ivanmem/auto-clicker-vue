@@ -1,0 +1,38 @@
+[package]
+name = "auto-clicker-vue"
+version = "1.0.0"
+description = "Лёгкий автокликер для Windows на Tauri 2 + Vue 3 + Nuxt UI 4"
+authors = ["Auto Clicker Vue contributors"]
+edition = "2021"
+license = "MIT"
+repository = "https://github.com/ivanmem/auto-clicker-vue"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# Суффикс `_lib` нужен, чтобы имя библиотеки не конфликтовало с именем бинарника.
+# Это касается только Windows, см. https://github.com/rust-lang/cargo/issues/8519
+name = "auto_clicker_vue_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-shell = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri-plugin-prevent-default = "4.0"
+enigo = "0.3"
+windows = { version = "0.58", features = ["Win32_UI_WindowsAndMessaging", "Win32_Foundation", "Win32_UI_Input_KeyboardAndMouse"] }
+
+[profile.dev]
+incremental = true # Сборка по шагам — быстрее инкрементальная компиляция в dev-режиме.
+
+[profile.release]
+codegen-units = 1 # Позволяет LLVM лучше оптимизировать.
+lto = true        # Включает link-time-optimizations.
+opt-level = "s"   # Приоритет — компактный бинарник. Используй `3`, если важна скорость.
+panic = "abort"   # Выше производительность за счёт отказа от panic handlers.
+strip = true      # Снимает отладочные символы.

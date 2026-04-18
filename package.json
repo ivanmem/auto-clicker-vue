@@ -1,0 +1,85 @@
+{
+  "name": "auto-clicker-vue",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Лёгкий и красивый автокликер для Windows на Tauri 2 + Vue 3 + Nuxt UI 4",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ivanmem/auto-clicker-vue.git"
+  },
+  "homepage": "https://github.com/ivanmem/auto-clicker-vue#readme",
+  "bugs": {
+    "url": "https://github.com/ivanmem/auto-clicker-vue/issues"
+  },
+  "keywords": [
+    "tauri",
+    "vue",
+    "vue3",
+    "nuxt-ui",
+    "autoclicker",
+    "auto-clicker",
+    "clicker",
+    "windows",
+    "rust",
+    "desktop"
+  ],
+  "scripts": {
+    "dev": "pnpm vite:dev",
+    "vite:dev": "cross-env DEBUG=0 vite",
+    "test": "vitest",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --build --force",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build",
+    "bump": "node bump-version.cjs",
+    "check": "cargo check --manifest-path src-tauri/Cargo.toml"
+  },
+  "dependencies": {
+    "@iconify-json/lucide": "^1.2.102",
+    "@nuxt/ui": "^4.6.1",
+    "@tauri-apps/api": "^2.10.1",
+    "@tauri-apps/plugin-shell": "^2.3.5",
+    "@vue/devtools": "^8.1.1",
+    "@vueuse/core": "^12.0.0",
+    "es-toolkit": "^1.45.1",
+    "pinia": "^3.0.4",
+    "tailwindcss": "^4.2.2",
+    "vue": "^3.5.30"
+  },
+  "devDependencies": {
+    "@pinia/testing": "^1.0.3",
+    "@tauri-apps/cli": "^2.10.1",
+    "@tsconfig/node22": "^22.0.5",
+    "@types/node": "^25.5.0",
+    "@typescript-eslint/eslint-plugin": "^8.57.2",
+    "@vitejs/plugin-vue": "^6.0.5",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "@vue/test-utils": "^2.4.6",
+    "@vue/tsconfig": "^0.9.1",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "eslint": "^10.1.0",
+    "eslint-plugin-security": "^4.0.0",
+    "eslint-plugin-vue": "^10.8.0",
+    "prettier": "^3.8.1",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.2",
+    "vite-plugin-node-polyfills": "^0.26.0",
+    "vite-plugin-top-level-await": "^1.6.0",
+    "vite-plugin-vue-devtools": "^8.1.1",
+    "vitest": "^4.1.1",
+    "vue-tsc": "^3.2.6"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@swc/core",
+      "@tailwindcss/oxide",
+      "electron",
+      "esbuild",
+      "vue-demi"
+    ]
+  }
+}
