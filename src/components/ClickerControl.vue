@@ -6,7 +6,6 @@ import { useAutoClicker } from '@/composables/useAutoClicker'
 import { useGlobalHotkey } from '@/composables/useGlobalHotkey'
 import { useGlobalMouseActivity } from '@/composables/useGlobalMouseActivity'
 import { BUTTON_OPTIONS, HOTKEY_OPTIONS } from '@/constants/clicker'
-
 const store = useStore()
 
 const { isPaused, reportActivity } = useAutoClicker({
@@ -29,7 +28,7 @@ useEventListener(window, 'blur', reportActivity)
 
 const statusBadge = computed(() => {
   if (!store.isRunning) {
-    return { color: 'neutral', icon: 'i-lucide-circle', label: 'Остановлен' } as const
+    return { color: 'neutral', icon: 'i-lucide-circle-off', label: 'Остановлен' } as const
   }
 
   if (isPaused.value) {
@@ -47,7 +46,7 @@ const statusBadge = computed(() => {
   >
     <template #header>
       <div class="flex items-center justify-between gap-3">
-            <UBadge
+        <UBadge
           :color="statusBadge.color"
           :icon="statusBadge.icon"
           variant="subtle"
